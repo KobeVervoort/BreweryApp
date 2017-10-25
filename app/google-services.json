@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "66438505074",
+    "firebase_url": "https://brewery-app-mobdev.firebaseio.com",
+    "project_id": "brewery-app-mobdev",
+    "storage_bucket": "brewery-app-mobdev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66438505074:android:a5ebf1d62622d570",
+        "android_client_info": {
+          "package_name": "com.example.kobevervoort.breweryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66438505074-a9rso3q8slsm0r336kj3g4vjiac1lds6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kobevervoort.breweryapp",
+            "certificate_hash": "2dc2b123e09bc9687bf8e48e59ba3321a919e417"
+          }
+        },
+        {
+          "client_id": "66438505074-57j72kmrv7r5b9e9f7auna3aq2lvmtsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEqIcN2gyn95k4pONj0OrzofL6FlLQGzw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66438505074-57j72kmrv7r5b9e9f7auna3aq2lvmtsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
