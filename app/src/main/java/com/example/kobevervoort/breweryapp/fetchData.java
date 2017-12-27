@@ -30,7 +30,7 @@ public class fetchData extends AsyncTask<Void, Void, String> {
 
         try {
 
-            URL url = new URL("http://beermapping.com/webservice/locquery/f4ac5bafde4e3ca58d904d266fe956ca/piece&s=json");
+            URL url = new URL("http://beermapping.com/webservice/locquery/f4ac5bafde4e3ca58d904d266fe956ca/belgian&s=json");
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
