@@ -2,8 +2,10 @@ package com.example.kobevervoort.breweryapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -55,8 +57,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //get text en set to string
+                EditText searchCity = (EditText) findViewById(R.id.searchCity);
+                String searchCityName = searchCity.getText().toString();
+
                 fetchData process = new fetchData();
-                process.execute();
+                process.execute(searchCityName);
 
             }
         });

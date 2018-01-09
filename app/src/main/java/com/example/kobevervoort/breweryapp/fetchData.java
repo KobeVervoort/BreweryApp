@@ -16,9 +16,10 @@ import java.net.URL;
  * Created by Helena on 26/12/17.
  */
 
-public class fetchData extends AsyncTask<Void, Void, String> {
+public class fetchData extends AsyncTask<String, String , String> {
 
     String data ="";
+    String normalUrl = "";
     String dataParsed = "";
     String singleParsed ="";
 
@@ -26,17 +27,23 @@ public class fetchData extends AsyncTask<Void, Void, String> {
 
     }
 
-    protected String doInBackground(Void... urls) {
+    protected String doInBackground(String... searchCityName) {
 
         try {
 
-            URL url = new URL("http://beermapping.com/webservice/locquery/f4ac5bafde4e3ca58d904d266fe956ca/belgian&s=json");
+            // Setup url with input of searchfield
+            normalUrl = "http://beermapping.com/webservice/loccity/f4ac5bafde4e3ca58d904d266fe956ca/" + searchCityName + "&s=json";
+            URL url = new URL( normalUrl);
 
+            // Connect to url
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
             try {
 
+                //Read data from url
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
+                //Put data in variable line
                 StringBuilder stringBuilder = new StringBuilder();
                 String line = "";
 
