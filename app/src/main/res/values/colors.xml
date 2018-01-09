@@ -2,7 +2,9 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryWhite">#ffffff</color>
+    <color name="ColorPrimaryGrey">#FF9E9E9E</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="searchField">#f9d55c</color>
+    <color name="colorPrimaryGrey">#9e9e9e</color>
 </resources>
