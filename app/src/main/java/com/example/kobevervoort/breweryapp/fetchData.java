@@ -32,7 +32,7 @@ public class fetchData extends AsyncTask<String, String , String> {
         try {
 
             // Setup url with input of searchfield
-            normalUrl = "http://beermapping.com/webservice/loccity/f4ac5bafde4e3ca58d904d266fe956ca/" + searchCityName + "&s=json";
+            normalUrl = "http://beermapping.com/webservice/loccity/f4ac5bafde4e3ca58d904d266fe956ca/" + searchCityName[0] + "&s=json";
             URL url = new URL( normalUrl);
 
             // Connect to url
