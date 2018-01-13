@@ -13,7 +13,7 @@
             android:id="@+id/title"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="The Brewery App : Give up a city and we give you the best pubs in town."
+            android:text="The Brewery App : Give up a city and find out where they sell some good beers."
             android:textColor="@color/searchField"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -50,7 +50,8 @@
             android:layout_height="match_parent"
             android:id="@+id/beerList"
             android:layout_below="@+id/button"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             />
 
 

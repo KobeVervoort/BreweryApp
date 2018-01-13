@@ -30,7 +30,7 @@ class Pub {
 
 class Adapter extends BaseAdapter {
 
-    static ArrayList<Pub> pubs = new ArrayList<Pub>();
+    public static ArrayList<Pub> pubs = new ArrayList<Pub>();
     Context c;
 
     Adapter(Context context){
@@ -56,7 +56,23 @@ class Adapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        return null;
+        LayoutInflater layoutInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        @SuppressLint("ViewHolder")
+        View detail = layoutInflater.inflate(R.layout.activity_detail, null);
+
+        TextView detailName = (TextView) detail.findViewById(R.id.detailName);
+        TextView detailStatus = (TextView) detail.findViewById(R.id.detailStatus);
+        TextView detailCity = (TextView) detail.findViewById(R.id.detailCity);
+
+        Pub tmp = pubs.get(position);
+
+        detailName.setText(tmp.name);
+        detailStatus.setText(tmp.status);
+        detailCity.setText(tmp.city);
+
+
+        return detail;
 
     }
 }

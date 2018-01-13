@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -55,17 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 // Connect to url
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
-
                 //Read data from url
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 
                 //Put data in variable line
-                StringBuilder stringBuilder = new StringBuilder();
                 String line = "";
-
-                while ((line = bufferedReader.readLine()) != null) {
-
-                    stringBuilder.append(line).append("\n");
+                while (line != null) {
+                    line = bufferedReader.readLine();
                     data = data + line;
                 }
 
@@ -78,9 +75,8 @@ public class MainActivity extends AppCompatActivity {
             return data;
         }
 
+        @Override
         protected void onPostExecute(String data) {
-
-            super.onPostExecute(data);
 
             try {
 
@@ -88,17 +84,17 @@ public class MainActivity extends AppCompatActivity {
 
                 for (int i = 0; i < jsonArray.length(); i++) {
 
-                    JSONObject jsonObject = (JSONObject) jsonArray.getJSONObject(i);
-                    JSONObject pub = jsonObject.getJSONObject("pub");
+                    JSONObject beerPub = (JSONObject) jsonArray.getJSONObject(i);
 
-                    String name = (String) pub.getString("name");
-                    String status = (String) pub.getString("status");
-                    String city = (String) pub.getString("city");
+                    String name = (String) beerPub.getString("name");
+                    String status = (String) beerPub.getString("status");
+                    String city = (String) beerPub.getString("city");
 
                     Adapter.pubs.add(new Pub(name, status, city));
                 }
 
                 BeerAdapter.notifyDataSetChanged();
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -115,9 +111,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        beerList = (ListView) findViewById(R.id.beerList);
+        BeerAdapter = new Adapter(this);
+        beerList.setAdapter(BeerAdapter);
+        BeerAdapter.notifyDataSetChanged();
+
         BufferedReader reader = null;
 
         click = (Button)findViewById(R.id.button);
+
+
         click.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -133,10 +136,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        beerList = (ListView) findViewById(R.id.beerList);
-        BeerAdapter = new Adapter(this);
-        beerList.setAdapter(BeerAdapter);
-        BeerAdapter.notifyDataSetChanged();
+
 
     }
 
