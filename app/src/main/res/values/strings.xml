@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BreweryApp</string>
+    <string name="name_of_pub">Pub</string>
+    <string name="city_of_pub">City</string>
+    <string name="status_of_pub">Status</string>
 </resources>

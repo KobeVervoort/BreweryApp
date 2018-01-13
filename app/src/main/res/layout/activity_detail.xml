@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detailName"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/name_of_pub"
+        />
+
+    <TextView
+        android:id="@+id/detailStatus"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="@string/status_of_pub" />
+
+    <TextView
+        android:id="@+id/detailCity"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="@string/city_of_pub" />
+
+
+</LinearLayout>
