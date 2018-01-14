@@ -84,13 +84,18 @@ public class MainActivity extends AppCompatActivity {
 
                 for (int i = 0; i < jsonArray.length(); i++) {
 
+                    //Get JSONobject from apiurl
                     JSONObject beerPub = (JSONObject) jsonArray.getJSONObject(i);
 
+                    //Get specific elements from apiurl and put the in a Stringvariabel
                     String name = (String) beerPub.getString("name");
                     String status = (String) beerPub.getString("status");
+                    String street = (String) beerPub.getString("street");
                     String city = (String) beerPub.getString("city");
+                    String phone = (String) beerPub.getString("phone");
 
-                    Adapter.pubs.add(new Pub(name, status, city));
+                    //Set these strings into the adapter
+                    Adapter.pubs.add(new Pub(name, status, street, city, phone));
                 }
 
                 BeerAdapter.notifyDataSetChanged();
@@ -119,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
         BufferedReader reader = null;
 
         click = (Button)findViewById(R.id.button);
-
 
         click.setOnClickListener(new View.OnClickListener() {
 

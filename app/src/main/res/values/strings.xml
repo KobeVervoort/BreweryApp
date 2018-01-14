@@ -3,4 +3,6 @@
     <string name="name_of_pub">Pub</string>
     <string name="city_of_pub">City</string>
     <string name="status_of_pub">Status</string>
+    <string name="street_of_pub">Street</string>
+    <string name="phone_of_pub">Phone</string>
 </resources>

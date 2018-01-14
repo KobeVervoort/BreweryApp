@@ -19,12 +19,17 @@ class Pub {
     String name;
     String city;
     String status;
+    String street;
+    String phone;
 
-    Pub(String name, String city, String status) {
+    Pub(String name, String status, String street, String city,  String phone) {
 
         this.name = name;
-        this.city = city;
         this.status = status;
+        this.street = street;
+        this.city = city;
+        this.phone = phone;
+
     }
 }
 
@@ -64,12 +69,16 @@ class Adapter extends BaseAdapter {
         TextView detailName = (TextView) detail.findViewById(R.id.detailName);
         TextView detailStatus = (TextView) detail.findViewById(R.id.detailStatus);
         TextView detailCity = (TextView) detail.findViewById(R.id.detailCity);
+        TextView detailStreet = (TextView) detail.findViewById(R.id.detailStreet);
+        TextView detailPhone = (TextView) detail.findViewById(R.id.detailPhone);
 
         Pub tmp = pubs.get(position);
 
         detailName.setText(tmp.name);
         detailStatus.setText(tmp.status);
+        detailStreet.setText(tmp.street);
         detailCity.setText(tmp.city);
+        detailPhone.setText(tmp.phone);
 
 
         return detail;
