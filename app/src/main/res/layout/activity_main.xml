@@ -23,8 +23,17 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="27dp" />
 
+        <ImageView
+            android:id="@+id/searchIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/title"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="70dp"
+            android:src="@drawable/search"/>
+
         <EditText
-            android:layout_width="250dp"
+            android:layout_width="205dp"
             android:layout_height="50dp"
             android:layout_below="@+id/title"
             android:layout_marginTop="20dp"
