@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "66438505074-i93btoja6mu0vpmubrbbvtcbkqni21vh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kobevervoort.breweryapp",
+            "certificate_hash": "e403e2ef8ad1b78ad31caf5981ec9768d58678fd"
+          }
+        },
+        {
           "client_id": "66438505074-a9rso3q8slsm0r336kj3g4vjiac1lds6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
