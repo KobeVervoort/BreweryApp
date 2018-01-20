@@ -21,10 +21,11 @@ import java.util.ArrayList;
 
 import android.widget.ListView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -119,6 +120,14 @@ public class MainActivity extends AppCompatActivity {
         beerList = (ListView) findViewById(R.id.beerList);
         BeerAdapter = new Adapter(this);
         beerList.setAdapter(BeerAdapter);
+        beerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Pub pub = BeerAdapter.getItem(i);
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class).putExtra("pub_data", pub);
+                startActivity(intent);
+            }
+        });
         BeerAdapter.notifyDataSetChanged();
 
         BufferedReader reader = null;
@@ -139,11 +148,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
-
-
 }
 
