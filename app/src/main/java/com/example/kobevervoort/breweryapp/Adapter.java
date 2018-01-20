@@ -2,6 +2,7 @@ package com.example.kobevervoort.breweryapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,25 +14,6 @@ import java.util.ArrayList;
 /**
  * Created by Helena on 13/01/18.
  */
-
-class Pub {
-
-    String name;
-    String city;
-    String status;
-    String street;
-    String phone;
-
-    Pub(String name, String status, String street, String city,  String phone) {
-
-        this.name = name;
-        this.status = status;
-        this.street = street;
-        this.city = city;
-        this.phone = phone;
-
-    }
-}
 
 class Adapter extends BaseAdapter {
 
@@ -49,7 +31,8 @@ class Adapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    // changed it from generic Java Object tot Pub object
+    public Pub getItem(int i) {
         return pubs.get(i);
     }
 
@@ -64,7 +47,7 @@ class Adapter extends BaseAdapter {
         LayoutInflater layoutInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         @SuppressLint("ViewHolder")
-        View detail = layoutInflater.inflate(R.layout.activity_detail, null);
+        View detail = layoutInflater.inflate(R.layout.fragment_main, null);
 
         TextView detailName = (TextView) detail.findViewById(R.id.detailName);
         TextView detailStatus = (TextView) detail.findViewById(R.id.detailStatus);
