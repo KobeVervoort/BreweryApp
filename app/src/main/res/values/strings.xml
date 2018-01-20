@@ -5,4 +5,7 @@
     <string name="status_of_pub">Status</string>
     <string name="street_of_pub">Street</string>
     <string name="phone_of_pub">Phone</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
