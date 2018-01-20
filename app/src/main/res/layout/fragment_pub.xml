@@ -6,7 +6,18 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp">
+
+        <TextView
+            android:id="@+id/detailFavorite"
+            android:layout_width="199dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/searchField"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            />
 
         <TextView
             android:id="@+id/detailName"
@@ -67,11 +78,6 @@
             android:padding="10dp"
             android:text="Unfavorite"
             android:id="@+id/buttonUnfavorite"/>
-
-        <TextView
-            android:id="@+id/detailFavorite"
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
 
     </LinearLayout>
 

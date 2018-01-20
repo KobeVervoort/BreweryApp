@@ -93,7 +93,7 @@ public class PubFragment extends Fragment {
             @Override
             public void onClick (View view){
 
-                mFavoriteRef.setValue("favorite");
+                mFavoriteRef.setValue("I like the beer in here!");
 
             }
         });
@@ -102,8 +102,7 @@ public class PubFragment extends Fragment {
             @Override
             public void onClick (View view){
 
-                mFavoriteRef.setValue("No favorite");
-
+                mFavoriteRef.setValue("I wasn't a fan...");
             }
         });
 

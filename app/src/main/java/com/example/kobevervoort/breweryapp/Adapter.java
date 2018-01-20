@@ -51,17 +51,17 @@ class Adapter extends BaseAdapter {
 
         TextView detailName = (TextView) detail.findViewById(R.id.detailName);
         TextView detailStatus = (TextView) detail.findViewById(R.id.detailStatus);
-        TextView detailCity = (TextView) detail.findViewById(R.id.detailCity);
+        /*TextView detailCity = (TextView) detail.findViewById(R.id.detailCity);
         TextView detailStreet = (TextView) detail.findViewById(R.id.detailStreet);
-        TextView detailPhone = (TextView) detail.findViewById(R.id.detailPhone);
+        TextView detailPhone = (TextView) detail.findViewById(R.id.detailPhone);*/
 
         Pub tmp = pubs.get(position);
 
         detailName.setText(tmp.name);
         detailStatus.setText(tmp.status);
-        detailStreet.setText(tmp.street);
+        /*detailStreet.setText(tmp.street);
         detailCity.setText(tmp.city);
-        detailPhone.setText(tmp.phone);
+        detailPhone.setText(tmp.phone);*/
 
 
         return detail;
