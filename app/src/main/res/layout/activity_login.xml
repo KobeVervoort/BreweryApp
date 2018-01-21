@@ -4,8 +4,17 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context="com.example.kobevervoort.breweryapp.LoginActivity">
+
+    <ImageView
+        android:id="@+id/logobeer"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/logobeer"/>
 
     <Button
         android:id="@+id/login_button"
@@ -13,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="177dp"
-        android:background="@color/com_facebook_messenger_blue"
-        android:padding="10dp"
+        android:layout_marginBottom="200dp"
+        android:background="@color/colorPrimary"
+        android:padding="12dp"
         android:text="LOGIN WITH FACEBOOK"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
 </RelativeLayout>
