@@ -30,6 +30,8 @@ dependencies {
     compile 'com.google.firebase:firebase-database:11.8.0'
     compile 'com.android.support:support-v4:26.+'
     testCompile 'junit:junit:4.12'
+    //push notif
+    compile 'com.google.firebase:firebase-messaging:11.8.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
