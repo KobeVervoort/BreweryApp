@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,8 @@ import java.util.ArrayList;
 import android.widget.ListView;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     Button click;
     ListView beerList;
     Adapter BeerAdapter;
+
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+    private static final String TAG = "MainActivity";
 
     @SuppressLint("StaticFieldLeak")
     public class fetchData extends AsyncTask<String, String , String> {
@@ -94,9 +101,10 @@ public class MainActivity extends AppCompatActivity {
                     String street = (String) beerPub.getString("street");
                     String city = (String) beerPub.getString("city");
                     String phone = (String) beerPub.getString("phone");
+                    String id = (String) beerPub.getString("id");
 
                     //Set these strings into the adapter
-                    Adapter.pubs.add(new Pub(name, status, street, city, phone));
+                    Adapter.pubs.add(new Pub(name, status, street, city, phone, id));
                 }
 
                 BeerAdapter.notifyDataSetChanged();
@@ -115,39 +123,54 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        beerList = (ListView) findViewById(R.id.beerList);
-        BeerAdapter = new Adapter(this);
-        beerList.setAdapter(BeerAdapter);
-        beerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Pub pub = BeerAdapter.getItem(i);
-                Intent intent = new Intent(MainActivity.this, DetailActivity.class).putExtra("pub_data", pub);
-                startActivity(intent);
-            }
-        });
-        BeerAdapter.notifyDataSetChanged();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
-        BufferedReader reader = null;
+        if (mFirebaseUser == null){
+            //Not signed in, launch the Sign In Activity
+            Log.d(TAG, "User is not logged in");
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return;
+        } else {
+            Log.d(TAG, "User is logged in \nand here he is: " + mFirebaseUser.getUid());
+            setContentView(R.layout.activity_main);
 
-        click = (Button)findViewById(R.id.button);
+            beerList = (ListView) findViewById(R.id.beerList);
+            BeerAdapter = new Adapter(this);
+            beerList.setAdapter(BeerAdapter);
+            beerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Pub pub = BeerAdapter.getItem(i);
+                    Intent intent = new Intent(MainActivity.this, DetailActivity.class).putExtra("pub_data", pub);
+                    startActivity(intent);
+                }
+            });
+            BeerAdapter.notifyDataSetChanged();
 
-        click.setOnClickListener(new View.OnClickListener() {
+            BufferedReader reader = null;
 
-            @Override
-            public void onClick(View v) {
+            click = (Button)findViewById(R.id.button);
 
-                //get text en set to string
-                EditText searchCity = (EditText) findViewById(R.id.searchCity);
-                String searchCityName = searchCity.getText().toString();
+            click.setOnClickListener(new View.OnClickListener() {
 
-                fetchData process = new fetchData();
-                process.execute(searchCityName);
+                @Override
+                public void onClick(View v) {
 
-            }
-        });
+                    //get text en set to string
+                    EditText searchCity = (EditText) findViewById(R.id.searchCity);
+                    String searchCityName = searchCity.getText().toString();
+
+                    fetchData process = new fetchData();
+                    process.execute(searchCityName);
+
+                }
+            });
+        }
+
+
     }
 
 
