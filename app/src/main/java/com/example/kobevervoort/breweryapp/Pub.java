@@ -19,13 +19,15 @@ public class Pub implements Parcelable {
     public String street;
     public String city;
     public String phone;
+    public String id;
 
-    public Pub(String name, String status, String street, String city, String phone) {
+    public Pub(String name, String status, String street, String city, String phone, String id) {
         this.name = name;
         this.status = status;
         this.street = street;
         this.city = city;
         this.phone = phone;
+        this.id = id;
     }
 
     protected Pub(Parcel in){
@@ -34,6 +36,7 @@ public class Pub implements Parcelable {
         street = in.readString();
         city = in.readString();
         phone = in.readString();
+        id = in.readString();
     }
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(name);
@@ -41,6 +44,7 @@ public class Pub implements Parcelable {
         out.writeString(street);
         out.writeString(city);
         out.writeString(phone);
+        out.writeString(id);
     }
 
     public int describeContents() {
