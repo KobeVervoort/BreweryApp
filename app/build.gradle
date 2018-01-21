@@ -25,10 +25,21 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:cardview-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //Add firebase core and database
     compile 'com.google.firebase:firebase-core:11.8.0'
     compile 'com.google.firebase:firebase-database:11.8.0'
+
+    //Add firebase Auth
+    compile 'com.google.firebase:firebase-auth:11.8.0'
+
     compile 'com.android.support:support-v4:26.+'
+
+    //Add Facebook SDK
+    compile 'com.facebook.android:facebook-android-sdk:4.9.0'
+    
     testCompile 'junit:junit:4.12'
     //push notif
     compile 'com.google.firebase:firebase-messaging:11.8.0'
