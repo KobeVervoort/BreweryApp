@@ -21,6 +21,10 @@ public class Pub implements Parcelable {
     public String phone;
     public String id;
 
+    public Pub(){
+
+    }
+
     public Pub(String name, String status, String street, String city, String phone, String id) {
         this.name = name;
         this.status = status;

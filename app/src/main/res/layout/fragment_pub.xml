@@ -10,16 +10,6 @@
         android:layout_marginLeft="30dp">
 
         <TextView
-            android:id="@+id/detailFavorite"
-            android:layout_width="199dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/searchField"
-            android:textStyle="italic"
-            android:textSize="20dp"
-            />
-
-        <TextView
             android:id="@+id/detailName"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -66,18 +56,6 @@
             android:padding="10dp"
             android:text="Favorite"
             android:id="@+id/buttonFavorite"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/buttonFavorite"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@color/searchField"
-            android:textColor="@color/colorPrimaryWhite"
-            android:padding="10dp"
-            android:text="Unfavorite"
-            android:id="@+id/buttonUnfavorite"/>
 
     </LinearLayout>
 
